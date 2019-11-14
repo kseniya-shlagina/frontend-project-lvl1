@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import readlineSync from "readline-sync";
+// import readlineSync from 'readline-sync';
 
-import { getName } from "../index.js";
+import { getName } from '../index';
 
-console.log("Welcome to the Brain Games!");
+console.log('Welcome to the Brain Games!');
 getName();
