@@ -12,7 +12,7 @@ export const brainEvenRules = () => {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
 };
 
-export const brainEvenGame = userName => {
+export const brainEvenGame = (userName) => {
   const randomNumber = () => Math.floor(Math.random() * 99) + 1;
 
   for (let i = 1; i <= 3; i += 1) {
