@@ -1,33 +1,58 @@
 import readlineSync from 'readline-sync';
 
-// eslint-disable-next-line import/prefer-default-export
+// приветствие
+export const greeting = () => {
+  console.log('Welcome to the Brain Games!');
+};
+
+// получение имени пользователя
 export const getName = () => {
   const userName = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${userName}!`);
   return userName;
 };
-// получение имени
 
-export const brainEvenRules = () => {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
+// правила игры
+export const brainRules = (rule) => {
+  console.log(rule);
 };
 
-export const brainEvenGame = (userName) => {
-  const randomNumber = () => Math.floor(Math.random() * 99) + 1;
-
-  for (let i = 1; i <= 3; i += 1) {
-    const number = randomNumber();
-    console.log(`Question: ${number}`);
-    const isEven = number % 2 === 0;
-    const userAnswer = readlineSync.question('Your answer: ');
-
-    if ((isEven && userAnswer === 'yes') || (!isEven && userAnswer === 'no')) {
-      console.log('Correct!');
-    } else {
-      const correctAnswer = isEven === true ? 'yes' : 'no';
-      return console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${correctAnswer}.
-Let's try again, ${userName}!`);
-    }
+// функция спрашивающая один вопрос
+const askOneQuestion = (userName, question, answer) => {
+  console.log(`Question: ${question}`);
+  const userAnswer = readlineSync.question('Your answer: ');
+  if (userAnswer === answer) {
+    console.log('Correct!');
+  } else {
+    console.log(`${userAnswer} is wrong answer ;(. Correct answer was ${answer}.
+    Let's try again, ${userName}!`);
+    return false;
   }
-  return console.log(`Congratulations, ${userName}`);
+  return true;
+};
+
+// запуск игры
+export const launchGame = (
+  gameRules,
+  question1,
+  answer1,
+  question2,
+  answer2,
+  question3,
+  answer3,
+) => {
+  greeting();
+  const userName = getName();
+  brainRules(gameRules);
+  const firstQuestionResult = askOneQuestion(userName, question1, answer1);
+  if (firstQuestionResult === false) return false;
+
+  const secondQuestionResult = askOneQuestion(userName, question2, answer2);
+  if (secondQuestionResult === false) return false;
+
+  const thirdQuestionResult = askOneQuestion(userName, question3, answer3);
+  if (thirdQuestionResult === false) return false;
+
+  console.log(`Congratulations, ${userName}!`);
+  return true;
 };

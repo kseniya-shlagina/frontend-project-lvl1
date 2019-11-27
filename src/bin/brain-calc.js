@@ -2,13 +2,13 @@
 
 import { launchGame } from '../index';
 import {
-  brainEvenRule,
+  brainCalcRule,
   question1,
   answer1,
   question2,
   answer2,
   question3,
   answer3,
-} from '../games/brain-even-game';
+} from '../games/brain-calc-game';
 
-launchGame(brainEvenRule, question1, answer1, question2, answer2, question3, answer3);
+launchGame(brainCalcRule, question1, answer1, question2, answer2, question3, answer3);
