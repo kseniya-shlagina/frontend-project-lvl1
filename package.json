@@ -1,7 +1,13 @@
 {
   "name": "frontend-project-lvl1",
   "version": "1.0.0",
-  "description": "",
+  "description": "The collection of 5 small brain games",
+  "keywords": [
+    "game",
+    "brain",
+    "brain-game",
+    "terminal game"
+  ],
   "main": "index.js",
   "bin": {
     "brain-games": "dist/bin/brain-games.js",
