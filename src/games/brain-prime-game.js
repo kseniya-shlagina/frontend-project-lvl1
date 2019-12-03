@@ -1,4 +1,5 @@
 import { randomNumber } from '../utils';
+import launchGame from '../index';
 
 export const brainGameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -20,3 +21,7 @@ export const answer2 = isPrimeNumber(question2) === 0 ? 'yes' : 'no';
 
 export const question3 = randomNumber(1, 100);
 export const answer3 = isPrimeNumber(question3) === 0 ? 'yes' : 'no';
+
+export const startGame = () => {
+  launchGame(brainGameRule, question1, answer1, question2, answer2, question3, answer3);
+};

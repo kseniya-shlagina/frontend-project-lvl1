@@ -1,4 +1,5 @@
 import { randomNumber } from '../utils';
+import launchGame from '../index';
 
 export const brainGameRule = 'What number is missing in the progression?';
 
@@ -29,3 +30,7 @@ export const question2 = makeQuestion(Number(answer2));
 
 export const answer3 = String(randomNumber(1, 100));
 export const question3 = makeQuestion(Number(answer3));
+
+export const startGame = () => {
+  launchGame(brainGameRule, question1, answer1, question2, answer2, question3, answer3);
+};

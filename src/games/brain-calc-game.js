@@ -1,22 +1,24 @@
 import { randomNumber } from '../utils';
+import launchGame from '../index';
 
 export const brainCalcRule = 'What is the result of the expression?';
 
 const operand = '+-*';
 
 const getRandomOperand = (str) => {
-  const i = randomNumber(0, 2);
+  const i = randomNumber(0, 3);
   return str[i];
 };
 
 const calculateAnswer = (leftValue, rightValue, currentOperand) => {
-  if (currentOperand === '+') {
-    return leftValue + rightValue;
+  switch (currentOperand) {
+    case '+':
+      return leftValue + rightValue;
+    case '-':
+      return leftValue - rightValue;
+    default:
+      return leftValue * rightValue;
   }
-  if (currentOperand === '-') {
-    return leftValue - rightValue;
-  }
-  return leftValue * rightValue;
 };
 
 const operand1 = getRandomOperand(operand);
@@ -36,3 +38,7 @@ const leftValue3 = randomNumber(1, 100);
 const rightValue3 = randomNumber(1, 100);
 export const question3 = `${leftValue3} ${operand3} ${rightValue3}`;
 export const answer3 = String(calculateAnswer(leftValue3, rightValue3, operand3));
+
+export const startGame = () => {
+  launchGame(brainCalcRule, question1, answer1, question2, answer2, question3, answer3);
+};

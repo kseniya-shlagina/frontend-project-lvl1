@@ -1,23 +1,6 @@
 import readlineSync from 'readline-sync';
 
-// приветствие
-export const greeting = () => {
-  console.log('Welcome to the Brain Games!');
-};
-
-// получение имени пользователя
-export const getName = () => {
-  const userName = readlineSync.question('May I have your name? ');
-  console.log(`Hello, ${userName}!`);
-  return userName;
-};
-
-// правила игры
-export const brainRules = (rule) => {
-  console.log(rule);
-};
-
-// функция спрашивающая один вопрос
+// функция, спрашивающая один вопрос
 const askOneQuestion = (userName, question, answer) => {
   console.log(`Question: ${question}`);
   const userAnswer = readlineSync.question('Your answer: ');
@@ -32,18 +15,14 @@ const askOneQuestion = (userName, question, answer) => {
 };
 
 // запуск игры
-export const launchGame = (
-  gameRules,
-  question1,
-  answer1,
-  question2,
-  answer2,
-  question3,
-  answer3,
-) => {
-  greeting();
-  const userName = getName();
-  brainRules(gameRules);
+const launchGame = (gameRules, question1, answer1, question2, answer2, question3, answer3) => {
+  console.log('Welcome to the Brain Games!');
+
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
+
+  console.log(gameRules);
+
   const firstQuestionResult = askOneQuestion(userName, question1, answer1);
   if (firstQuestionResult === false) return false;
 
@@ -56,3 +35,5 @@ export const launchGame = (
   console.log(`Congratulations, ${userName}!`);
   return true;
 };
+
+export default launchGame;

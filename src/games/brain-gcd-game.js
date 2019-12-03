@@ -1,4 +1,5 @@
 import { randomNumber } from '../utils';
+import launchGame from '../index';
 
 export const brainGameRule = 'Find the greatest common divisor of given numbers.';
 
@@ -26,3 +27,7 @@ const leftValue3 = randomNumber(1, 100);
 const rightValue3 = randomNumber(1, 100);
 export const question3 = `${leftValue3} ${rightValue3}`;
 export const answer3 = String(calculateAnswer(leftValue3, rightValue3));
+
+export const startGame = () => {
+  launchGame(brainGameRule, question1, answer1, question2, answer2, question3, answer3);
+};
