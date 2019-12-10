@@ -21,17 +21,20 @@ const calculateAnswer = (leftValue, rightValue, currentOperand) => {
   }
 };
 
-const questionsAndAnswers = [];
+const getQuestionsAndAnswers = () => {
+  const questionsAndAnswers = [];
 
-for (let i = 0; i < 3; i += 1) {
-  const operand = getRandomOperand(operands);
-  const leftValue = randomNumber(1, 100);
-  const rightValue = randomNumber(1, 100);
-  const question = `${leftValue} ${operand} ${rightValue}`;
-  const answer = String(calculateAnswer(leftValue, rightValue, operand));
-  questionsAndAnswers.push(question, answer);
-}
+  for (let i = 0; i < 3; i += 1) {
+    const operand = getRandomOperand(operands);
+    const leftValue = randomNumber(1, 100);
+    const rightValue = randomNumber(1, 100);
+    const question = `${leftValue} ${operand} ${rightValue}`;
+    const answer = String(calculateAnswer(leftValue, rightValue, operand));
+    questionsAndAnswers.push(question, answer);
+  }
+  return questionsAndAnswers;
+};
 
 export const startGame = () => {
-  launchGame(brainCalcRule, ...questionsAndAnswers);
+  launchGame(brainCalcRule, ...getQuestionsAndAnswers());
 };

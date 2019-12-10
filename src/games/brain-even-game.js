@@ -5,15 +5,17 @@ const isEven = (number) => number % 2 === 0;
 
 export const brainEvenRule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
-export const question1 = randomNumber(1, 100);
-export const answer1 = isEven(question1) === true ? 'yes' : 'no';
+const getQuestionsAndAnswers = () => {
+  const questionsAndAnswers = [];
 
-export const question2 = randomNumber(1, 100);
-export const answer2 = isEven(question2) === true ? 'yes' : 'no';
-
-export const question3 = randomNumber(1, 100);
-export const answer3 = isEven(question3) === true ? 'yes' : 'no';
+  for (let i = 0; i < 3; i += 1) {
+    const question = randomNumber(1, 100);
+    const answer = isEven(question) === true ? 'yes' : 'no';
+    questionsAndAnswers.push(question, answer);
+  }
+  return questionsAndAnswers;
+};
 
 export const startGame = () => {
-  launchGame(brainEvenRule, question1, answer1, question2, answer2, question3, answer3);
+  launchGame(brainEvenRule, ...getQuestionsAndAnswers());
 };

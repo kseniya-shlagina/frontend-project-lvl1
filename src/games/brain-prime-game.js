@@ -13,15 +13,17 @@ const isPrimeNumber = (number) => {
   return result;
 };
 
-export const question1 = randomNumber(1, 100);
-export const answer1 = isPrimeNumber(question1) === 0 ? 'yes' : 'no';
+const getQuestionsAndAnswers = () => {
+  const questionsAndAnswers = [];
 
-export const question2 = randomNumber(1, 100);
-export const answer2 = isPrimeNumber(question2) === 0 ? 'yes' : 'no';
-
-export const question3 = randomNumber(1, 100);
-export const answer3 = isPrimeNumber(question3) === 0 ? 'yes' : 'no';
+  for (let i = 0; i < 3; i += 1) {
+    const question = randomNumber(1, 100);
+    const answer = isPrimeNumber(question) === 0 ? 'yes' : 'no';
+    questionsAndAnswers.push(question, answer);
+  }
+  return questionsAndAnswers;
+};
 
 export const startGame = () => {
-  launchGame(brainGameRule, question1, answer1, question2, answer2, question3, answer3);
+  launchGame(brainGameRule, ...getQuestionsAndAnswers());
 };

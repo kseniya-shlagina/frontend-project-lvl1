@@ -13,21 +13,19 @@ const calculateAnswer = (firstNumber, secondNumber) => {
   return 1;
 };
 
-const leftValue1 = randomNumber(1, 100);
-const rightValue1 = randomNumber(1, 100);
-export const question1 = `${leftValue1} ${rightValue1}`;
-export const answer1 = String(calculateAnswer(leftValue1, rightValue1));
+const getQuestionsAndAnswers = () => {
+  const questionsAndAnswers = [];
 
-const leftValue2 = randomNumber(1, 100);
-const rightValue2 = randomNumber(1, 100);
-export const question2 = `${leftValue2} ${rightValue2}`;
-export const answer2 = String(calculateAnswer(leftValue2, rightValue2));
-
-const leftValue3 = randomNumber(1, 100);
-const rightValue3 = randomNumber(1, 100);
-export const question3 = `${leftValue3} ${rightValue3}`;
-export const answer3 = String(calculateAnswer(leftValue3, rightValue3));
+  for (let i = 0; i < 3; i += 1) {
+    const leftValue = randomNumber(1, 100);
+    const rightValue = randomNumber(1, 100);
+    const question = `${leftValue} ${rightValue}`;
+    const answer = String(calculateAnswer(leftValue, rightValue));
+    questionsAndAnswers.push(question, answer);
+  }
+  return questionsAndAnswers;
+};
 
 export const startGame = () => {
-  launchGame(brainGameRule, question1, answer1, question2, answer2, question3, answer3);
+  launchGame(brainGameRule, ...getQuestionsAndAnswers());
 };
