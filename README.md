@@ -1,9 +1,11 @@
 # frontend-project-lvl1
 
 Please see how to run brain-even game here:
+
 https://asciinema.org/a/8eM5Bt2DOlb6fpuqqZAFnsc4Y
 
 How to run brain-calc game:
+
 https://asciinema.org/a/o3NbApUA9hcvZlErT3BxgAXgv
 
 How to run brain-gcd game:

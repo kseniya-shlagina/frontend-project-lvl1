@@ -1,4 +1,4 @@
-import { randomNumber } from '../utils';
+import randomNumber from '../utils';
 import launchGame from '../index';
 
 export const brainGameRule = 'Find the greatest common divisor of given numbers.';

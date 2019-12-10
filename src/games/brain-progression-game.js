@@ -1,4 +1,4 @@
-import { randomNumber } from '../utils';
+import randomNumber from '../utils';
 import launchGame from '../index';
 
 export const brainGameRule = 'What number is missing in the progression?';

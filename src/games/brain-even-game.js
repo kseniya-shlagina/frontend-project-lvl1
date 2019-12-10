@@ -1,5 +1,7 @@
-import { randomNumber, isEven } from '../utils';
+import randomNumber from '../utils';
 import launchGame from '../index';
+
+const isEven = (number) => number % 2 === 0;
 
 export const brainEvenRule = 'Answer "yes" if the number is even, otherwise answer "no".';
 

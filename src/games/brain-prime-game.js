@@ -1,4 +1,4 @@
-import { randomNumber } from '../utils';
+import randomNumber from '../utils';
 import launchGame from '../index';
 
 export const brainGameRule = 'Answer "yes" if given number is prime. Otherwise answer "no".';
