@@ -10,15 +10,14 @@ const getRandomOperand = (str) => {
   return str[i];
 };
 
-const calculateAnswer = (leftValue, rightValue, currentOperand) => {
-  if (currentOperand === '+') {
-    return leftValue + rightValue;
-  }
-  if (currentOperand === '-') {
-    return leftValue - rightValue;
-  }
-  if (currentOperand === '+') {
-    return leftValue * rightValue;
+const calculateAnswer = (leftValue, rightValue, currentOperand = '*') => {
+  switch (currentOperand) {
+    case '+':
+      return leftValue + rightValue;
+    case '-':
+      return leftValue - rightValue;
+    default:
+      return leftValue * rightValue;
   }
 };
 
