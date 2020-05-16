@@ -15,7 +15,7 @@ const askOneQuestion = (userName, question, answer) => {
 };
 
 // запуск игры
-const launchGame = (gameRules, question1, answer1, question2, answer2, question3, answer3) => {
+const launchGame = (gameRules, getQuestionAndAnswer) => {
   console.log('Welcome to the Brain Games!');
 
   const userName = readlineSync.question('May I have your name? ');
@@ -23,14 +23,11 @@ const launchGame = (gameRules, question1, answer1, question2, answer2, question3
 
   console.log(gameRules);
 
-  const firstQuestionResult = askOneQuestion(userName, question1, answer1);
-  if (firstQuestionResult === false) return false;
-
-  const secondQuestionResult = askOneQuestion(userName, question2, answer2);
-  if (secondQuestionResult === false) return false;
-
-  const thirdQuestionResult = askOneQuestion(userName, question3, answer3);
-  if (thirdQuestionResult === false) return false;
+  for (let i = 0; i < 3; i += 1) {
+    const questionAndAnswer = getQuestionAndAnswer();
+    const result = askOneQuestion(userName, questionAndAnswer[0], questionAndAnswer[1]);
+    if (!result) return false;
+  }
 
   console.log(`Congratulations, ${userName}!`);
   return true;

@@ -11,30 +11,30 @@ const getRandomOperand = (str) => {
 };
 
 const calculateAnswer = (leftValue, rightValue, currentOperand) => {
-  switch (currentOperand) {
-    case '+':
-      return leftValue + rightValue;
-    case '-':
-      return leftValue - rightValue;
-    default:
-      return leftValue * rightValue;
+  if (currentOperand === '+') {
+    return leftValue + rightValue;
+  }
+  if (currentOperand === '-') {
+    return leftValue - rightValue;
+  }
+  if (currentOperand === '+') {
+    return leftValue * rightValue;
   }
 };
 
-const getQuestionsAndAnswers = () => {
-  const questionsAndAnswers = [];
+const getQuestionAndAnswer = () => {
+  const questionAndAnswer = [];
 
-  for (let i = 0; i < 3; i += 1) {
-    const operand = getRandomOperand(operands);
-    const leftValue = randomNumber(1, 100);
-    const rightValue = randomNumber(1, 100);
-    const question = `${leftValue} ${operand} ${rightValue}`;
-    const answer = String(calculateAnswer(leftValue, rightValue, operand));
-    questionsAndAnswers.push(question, answer);
-  }
-  return questionsAndAnswers;
+  const operand = getRandomOperand(operands);
+  const leftValue = randomNumber(1, 100);
+  const rightValue = randomNumber(1, 100);
+  const question = `${leftValue} ${operand} ${rightValue}`;
+  const answer = String(calculateAnswer(leftValue, rightValue, operand));
+  questionAndAnswer.push(question, answer);
+
+  return questionAndAnswer;
 };
 
 export const startGame = () => {
-  launchGame(brainCalcRule, ...getQuestionsAndAnswers());
+  launchGame(brainCalcRule, getQuestionAndAnswer);
 };

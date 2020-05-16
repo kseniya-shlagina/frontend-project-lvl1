@@ -22,17 +22,16 @@ const makeQuestion = (num) => {
   return question;
 };
 
-const getQuestionsAndAnswers = () => {
-  const questionsAndAnswers = [];
+const getQuestionAndAnswer = () => {
+  const questionAndAnswer = [];
 
-  for (let i = 0; i < 3; i += 1) {
-    const answer = String(randomNumber(1, 100));
-    const question = makeQuestion(Number(answer));
-    questionsAndAnswers.push(question, answer);
-  }
-  return questionsAndAnswers;
+  const answer = String(randomNumber(1, 100));
+  const question = makeQuestion(Number(answer));
+  questionAndAnswer.push(question, answer);
+
+  return questionAndAnswer;
 };
 
 export const startGame = () => {
-  launchGame(brainGameRule, ...getQuestionsAndAnswers());
+  launchGame(brainGameRule, getQuestionAndAnswer);
 };

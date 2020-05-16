@@ -10,20 +10,19 @@ const isPrimeNumber = (number) => {
       result += 1;
     }
   }
-  return result;
+  return result === 0;
 };
 
-const getQuestionsAndAnswers = () => {
-  const questionsAndAnswers = [];
+const getQuestionAndAnswer = () => {
+  const questionAndAnswer = [];
 
-  for (let i = 0; i < 3; i += 1) {
-    const question = randomNumber(1, 100);
-    const answer = isPrimeNumber(question) === 0 ? 'yes' : 'no';
-    questionsAndAnswers.push(question, answer);
-  }
-  return questionsAndAnswers;
+  const question = randomNumber(1, 100);
+  const answer = isPrimeNumber(question) ? 'yes' : 'no';
+  questionAndAnswer.push(question, answer);
+
+  return questionAndAnswer;
 };
 
 export const startGame = () => {
-  launchGame(brainGameRule, ...getQuestionsAndAnswers());
+  launchGame(brainGameRule, getQuestionAndAnswer);
 };

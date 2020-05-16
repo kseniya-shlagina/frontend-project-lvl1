@@ -13,19 +13,18 @@ const calculateAnswer = (firstNumber, secondNumber) => {
   return 1;
 };
 
-const getQuestionsAndAnswers = () => {
-  const questionsAndAnswers = [];
+const getQuestionAndAnswer = () => {
+  const questionAndAnswer = [];
 
-  for (let i = 0; i < 3; i += 1) {
-    const leftValue = randomNumber(1, 100);
-    const rightValue = randomNumber(1, 100);
-    const question = `${leftValue} ${rightValue}`;
-    const answer = String(calculateAnswer(leftValue, rightValue));
-    questionsAndAnswers.push(question, answer);
-  }
-  return questionsAndAnswers;
+  const leftValue = randomNumber(1, 100);
+  const rightValue = randomNumber(1, 100);
+  const question = `${leftValue} ${rightValue}`;
+  const answer = String(calculateAnswer(leftValue, rightValue));
+  questionAndAnswer.push(question, answer);
+
+  return questionAndAnswer;
 };
 
 export const startGame = () => {
-  launchGame(brainGameRule, ...getQuestionsAndAnswers());
+  launchGame(brainGameRule, getQuestionAndAnswer);
 };
