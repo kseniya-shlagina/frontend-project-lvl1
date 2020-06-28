@@ -13,7 +13,7 @@ To play the games please do following:
 2. Run 'make install'
 3. Run 'make publish'
 4. Run 'npm link'
-5. Run any of the folowing games:
+5. Run any of the following games:
    brain-even,
    brain-calc,
    brain-gcd,
