@@ -1,37 +1,38 @@
 import randomNumber from '../utils';
 import launchGame from '../index';
 
-export const brainGameRule = 'What number is missing in the progression?';
+const brainGameRule = 'What number is missing in the progression?';
 
-const makeQuestion = (num) => {
-  let number = num;
-  let number2 = num;
-  let question = '..';
-  const step = randomNumber(1, 10);
-  const leftSideProgression = randomNumber(1, 10);
-  const rightSideProgression = 9 - leftSideProgression;
+const makeProgression = (start, diff, index) => {
+  const progressionLength = 10;
+  const progression = [];
 
-  for (let i = 0; i < leftSideProgression; i += 1) {
-    number -= step;
-    question = `${number} ${question}`;
+  for (let i = 0; i < progressionLength; i += 1) {
+    if (i === index) {
+      progression.push('..');
+    } else {
+      progression.push(start + diff * i);
+    }
   }
-  for (let i = 0; i < rightSideProgression; i += 1) {
-    number2 += step;
-    question = `${question} ${number2}`;
-  }
-  return question;
+
+  return progression;
 };
 
 const getQuestionAndAnswer = () => {
   const questionAndAnswer = [];
 
-  const answer = String(randomNumber(1, 100));
-  const question = makeQuestion(Number(answer));
-  questionAndAnswer.push(question, answer);
+  const start = randomNumber(1, 100);
+  const diff = randomNumber(1, 10);
+  const randomIndex = randomNumber(0, 9);
+  const progression = makeProgression(start, diff, randomIndex);
 
+  const question = progression.join(' ');
+  const answer = String(start + diff * randomIndex);
+
+  questionAndAnswer.push(question, answer);
   return questionAndAnswer;
 };
 
-export const startGame = () => {
-  launchGame(brainGameRule, getQuestionAndAnswer);
-};
+const startGame = () => launchGame(brainGameRule, getQuestionAndAnswer);
+
+export default startGame;

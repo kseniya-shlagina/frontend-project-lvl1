@@ -3,7 +3,7 @@ import launchGame from '../index';
 
 const isEven = (number) => number % 2 === 0;
 
-export const brainEvenRule = 'Answer "yes" if the number is even, otherwise answer "no".';
+const brainEvenRule = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const getQuestionAndAnswer = () => {
   const questionAndAnswer = [];
@@ -15,6 +15,6 @@ const getQuestionAndAnswer = () => {
   return questionAndAnswer;
 };
 
-export const startGame = () => {
-  launchGame(brainEvenRule, getQuestionAndAnswer);
-};
+const startGame = () => launchGame(brainEvenRule, getQuestionAndAnswer);
+
+export default startGame;
