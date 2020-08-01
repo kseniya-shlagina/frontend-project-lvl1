@@ -24,16 +24,13 @@ const calculateAnswer = (leftValue, rightValue, currentOperation) => {
 };
 
 const getQuestionAndAnswer = () => {
-  const questionAndAnswer = [];
-
   const operation = getRandomOperation(operations);
   const leftValue = randomNumber(1, 100);
   const rightValue = randomNumber(1, 100);
   const question = `${leftValue} ${operation} ${rightValue}`;
   const answer = String(calculateAnswer(leftValue, rightValue, operation));
-  questionAndAnswer.push(question, answer);
 
-  return questionAndAnswer;
+  return [question, answer];
 };
 
 const runGame = () => launchGame(brainCalcRule, getQuestionAndAnswer);

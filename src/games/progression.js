@@ -18,8 +18,6 @@ const getProgressionQuestion = (start, diff, index, progressionLength) => {
 };
 
 const getQuestionAndAnswer = () => {
-  const questionAndAnswer = [];
-
   const start = randomNumber(1, 100);
   const diff = randomNumber(1, 10);
   const progressionLength = 10;
@@ -29,8 +27,7 @@ const getQuestionAndAnswer = () => {
   const question = progression.join(' ');
   const answer = String(start + diff * randomIndex);
 
-  questionAndAnswer.push(question, answer);
-  return questionAndAnswer;
+  return [question, answer];
 };
 
 const runGame = () => launchGame(brainGameRule, getQuestionAndAnswer);

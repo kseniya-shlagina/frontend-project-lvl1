@@ -14,15 +14,12 @@ const getGcdOfTwoNumbers = (firstNumber, secondNumber) => {
 };
 
 const getQuestionAndAnswer = () => {
-  const questionAndAnswer = [];
-
   const leftValue = randomNumber(1, 100);
   const rightValue = randomNumber(1, 100);
   const question = `${leftValue} ${rightValue}`;
   const answer = String(getGcdOfTwoNumbers(leftValue, rightValue));
-  questionAndAnswer.push(question, answer);
 
-  return questionAndAnswer;
+  return [question, answer];
 };
 
 const runGame = () => launchGame(brainGameRule, getQuestionAndAnswer);

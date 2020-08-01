@@ -15,13 +15,10 @@ const isPrimeNumber = (number) => {
 };
 
 const getQuestionAndAnswer = () => {
-  const questionAndAnswer = [];
-
   const question = randomNumber(1, 100);
   const answer = isPrimeNumber(question) ? 'yes' : 'no';
-  questionAndAnswer.push(question, answer);
 
-  return questionAndAnswer;
+  return [question, answer];
 };
 
 const runGame = () => launchGame(brainGameRule, getQuestionAndAnswer);
