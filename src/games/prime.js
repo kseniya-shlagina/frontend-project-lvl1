@@ -24,6 +24,6 @@ const getQuestionAndAnswer = () => {
   return questionAndAnswer;
 };
 
-const startGame = () => launchGame(brainGameRule, getQuestionAndAnswer);
+const runGame = () => launchGame(brainGameRule, getQuestionAndAnswer);
 
-export default startGame;
+export default runGame;

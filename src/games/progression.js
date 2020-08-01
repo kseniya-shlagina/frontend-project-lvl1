@@ -3,8 +3,7 @@ import launchGame from '../index';
 
 const brainGameRule = 'What number is missing in the progression?';
 
-const makeProgression = (start, diff, index) => {
-  const progressionLength = 10;
+const getProgressionQuestion = (start, diff, index, progressionLength) => {
   const progression = [];
 
   for (let i = 0; i < progressionLength; i += 1) {
@@ -23,8 +22,9 @@ const getQuestionAndAnswer = () => {
 
   const start = randomNumber(1, 100);
   const diff = randomNumber(1, 10);
-  const randomIndex = randomNumber(0, 9);
-  const progression = makeProgression(start, diff, randomIndex);
+  const progressionLength = 10;
+  const randomIndex = randomNumber(0, progressionLength - 1);
+  const progression = getProgressionQuestion(start, diff, randomIndex, progressionLength);
 
   const question = progression.join(' ');
   const answer = String(start + diff * randomIndex);
@@ -33,6 +33,6 @@ const getQuestionAndAnswer = () => {
   return questionAndAnswer;
 };
 
-const startGame = () => launchGame(brainGameRule, getQuestionAndAnswer);
+const runGame = () => launchGame(brainGameRule, getQuestionAndAnswer);
 
-export default startGame;
+export default runGame;

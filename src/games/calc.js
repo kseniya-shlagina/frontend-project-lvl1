@@ -10,18 +10,17 @@ const getRandomOperation = (str) => {
   return str[i];
 };
 
-const calculateAnswer = (leftValue, rightValue, currentOperand) => {
-  if (currentOperand === '+') {
-    return leftValue + rightValue;
+const calculateAnswer = (leftValue, rightValue, currentOperation) => {
+  switch (currentOperation) {
+    case '+':
+      return leftValue + rightValue;
+    case '-':
+      return leftValue - rightValue;
+    case '*':
+      return leftValue * rightValue;
+    default:
+      throw new Error('Unknown operation');
   }
-  if (currentOperand === '-') {
-    return leftValue - rightValue;
-  }
-  if (currentOperand === '*') {
-    return leftValue * rightValue;
-  }
-
-  throw new Error('Unknown operation');
 };
 
 const getQuestionAndAnswer = () => {
@@ -37,6 +36,6 @@ const getQuestionAndAnswer = () => {
   return questionAndAnswer;
 };
 
-const startGame = () => launchGame(brainCalcRule, getQuestionAndAnswer);
+const runGame = () => launchGame(brainCalcRule, getQuestionAndAnswer);
 
-export default startGame;
+export default runGame;
